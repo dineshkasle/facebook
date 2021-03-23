@@ -4,6 +4,7 @@ import {HeaderComponent} from "../../../instagram/src/app/header/header.componen
 import {WallComponent} from "./wall/wall.component";
 
 const routes: Routes = [
+  {path:'', component:WallComponent},
   {path:'headers', component:HeaderComponent},
   {path:'wall', component:WallComponent},
 ];
