@@ -1,0 +1,120 @@
+<ul class="nav nav-pills  bg-dark" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active navList" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"> <i class="fa fa-home"></i></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link navList" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fa fa-users"></i></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link navList" id="pills-vid-tab" data-toggle="pill" href="#pills-vid" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fa fa-television"></i></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link navList" id="pills-shop-tab" data-toggle="pill" href="#pills-shop" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fa fa-shopping-basket"></i></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link navList" id="pills-bell-tab" data-toggle="pill" href="#pills-bell" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fa fa-bell-o"></i></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link navList" id="pills-sett-tab" data-toggle="pill" href="#pills-sett" role="tab" aria-controls="pills-contact" aria-selected="false"><i class="fa fa-bars"></i></a>
+  </li>
+</ul>
+<hr  class="hrCss">
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <div class="bg-dark  pt-2 pb-2">
+      <div class="pl-2">
+        <div class="row col-12">
+          <div class="col-2">
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" alt="" class="cover-item" style="border-radius: 50%; width: 35px; height: 35px;">
+          </div>
+          <div class="col-10">
+
+            <input type="text" class="form-control form-rounded" placeholder="Write something here....">
+          </div>
+        </div>
+      </div>
+      <hr  class="hrCss mt-2">
+
+      <div class="row">
+        <div class="col-4 text-center text-white"><i class="fa fa-video-camera text-danger" aria-hidden="true"></i> <small> Live</small></div>
+        <div class="col-4 text-center text-white"><i class="fa fa-image text-success" aria-hidden="true"></i> <small> Photo</small></div>
+        <div class="col-4 text-center text-white"><i class="fa fa-youtube-play text-info" aria-hidden="true"></i> <small> Reels</small></div>
+      </div>
+      <hr  class="hrCss mt-2 mb-2">
+
+
+      <div class="d-flex flex-row flex-nowrap overflow-auto">
+        <div class="card col-4" style="padding: 0px;margin: 2px;">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text"> Create a Story</p>
+          </div>
+          <button class="btn btn-info btn-circle btn-sm btnCenterCss"> <i class="fa fa-plus"></i> </button>
+        </div>
+
+        <div class="card col-4" style="padding: 0px;margin: 2px;">
+          <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-4.jpg" class="card-img-top" alt="..." style="height: 100%">
+          <div class="storyCss"> Demo name</div>
+        </div>
+
+        <div class="card col-4" style="padding: 0px;margin: 2px;">
+          <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-3.jpg" class="card-img-top" alt="..." style="height: 100%">
+          <div class="storyCss"> Danny</div>
+        </div>
+        <div class="card col-4" style="padding: 0px;margin: 2px;">
+          <img src="https://demos.creative-tim.com/argon-dashboard-pro/assets/img/theme/team-2.jpg" class="card-img-top" alt="..." style="height: 100%">
+          <div class="storyCss"> D'suza</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bg-dark">
+      <div *ngFor="let post of myPost; let i=index" style="position: relative">
+        <div class="pl-2">
+          <img class="cover-item" [src]="post.imgUri"
+               style="border-radius: 50%;width: 35px;height: 35px;" alt="">
+          <small class="text-white mt-2 font-weight-bold" style="position: absolute;font-size: 11px;"> {{ post.userName}}</small>
+          <small class="text-white"
+                 style="position: absolute; top: 5px; font-size: 16px; color: #d2cfcf !important;left: 335px;"><i
+            class="fa fa-ellipsis-h fa-rotate-90" aria-hidden="true"></i>
+          </small>
+          <small class="text-white"
+                 style="position: absolute;top: 22px;font-size: 11px;color: #d2cfcf !important;">{{post.location}} <i class="fa fa-globe"></i></small>
+        </div>
+        <div>
+          <div class="text-center" *ngIf="post.likedImage" style="
+    position: absolute;
+    top: 40%;
+    left: 40%;
+"><i class="text-white fa fa-heart fa-5x imgShadow"></i></div>
+          <img class="img-fluid doubleClick" [src]="post.mainImgUrl" alt="" (dblclick)="likePost(i)"
+               style="width: -moz-available;width: -webkit-fill-available">
+        </div>
+        <div>
+
+          <div class="">
+
+            <small class="text-white pl-2"> 😀{{post.likes}}k</small>
+            <small class="text-white ml-2 pull-right mr-3 mt-1"> 21 Comments . 74 Shares</small>
+
+          </div>
+
+          <hr  class="hrCss mt-1 mb-1">
+          <div class="row">
+            <div class="col-4 text-center text-white"><i class="fa fa-thumbs-up" aria-hidden="true" [ngClass]="post.likeClass" (click)="likedPost(i)"></i> <small> Like</small></div>
+            <div class="col-4 text-center text-white"><i class="fa fa-comment-o" aria-hidden="true"></i> <small> Comment</small></div>
+            <div class="col-4 text-center text-white"><i class="fa fa-share" aria-hidden="true"></i> <small> Share</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">profile</div>
+  <div class="tab-pane fade" id="pills-shop" role="tabpanel" aria-labelledby="pills-contact-tab">shop</div>
+  <div class="tab-pane fade" id="pills-vid" role="tabpanel" aria-labelledby="pills-contact-tab">vid</div>
+  <div class="tab-pane fade" id="pills-bell" role="tabpanel" aria-labelledby="pills-contact-tab">bell</div>
+  <div class="tab-pane fade" id="pills-sett" role="tabpanel" aria-labelledby="pills-contact-tab">sett</div>
+</div>
+
